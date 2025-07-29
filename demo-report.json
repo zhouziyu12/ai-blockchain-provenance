@@ -1,0 +1,13 @@
+{
+  "registryModelId": "demo_ai_model_1753683446597",
+  "marketplaceModelId": "demo_ai_model_001",
+  "modelName": "高精度图像分类模型",
+  "accuracy": 96.5,
+  "auditScore": 92,
+  "insuranceCoverage": "5000.0",
+  "usageCount": 3,
+  "nftTokenId": 1,
+  "userHasAccess": true,
+  "totalStaked": "40000.0",
+  "timestamp": "2025-07-28T06:17:26.746Z"
+}

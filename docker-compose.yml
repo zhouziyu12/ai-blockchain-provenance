@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: ai_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password_2024
+      MYSQL_DATABASE: ai_provenance_db
+      MYSQL_USER: ai_user
+      MYSQL_PASSWORD: ai_password_2024
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backend/migrations:/docker-entrypoint-initdb.d
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  redis:
+    image: redis:7.0-alpine
+    container_name: ai_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+  ipfs:
+    image: ipfs/kubo:latest
+    container_name: ai_ipfs
+    restart: always
+    ports:
+      - "4001:4001"
+      - "5001:5001"
+      - "8081:8080"
+    volumes:
+      - ipfs_data:/data/ipfs
+    environment:
+      - IPFS_PROFILE=server
+
+  backend:
+    build: ./backend
+    container_name: ai_backend
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - GIN_MODE=release
+    depends_on:
+      - mysql
+      - redis
+      - ipfs
+    volumes:
+      - ./backend/configs:/root/configs
+
+volumes:
+  mysql_data:
+  redis_data:
+  ipfs_data:
+
+networks:
+  default:
+    name: ai_provenance_network

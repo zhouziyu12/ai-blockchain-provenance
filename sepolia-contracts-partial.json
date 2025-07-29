@@ -1,0 +1,27 @@
+{
+  "network": {
+    "name": "sepolia",
+    "chainId": 11155111,
+    "rpcUrl": "https://sepolia.infura.io/v3/315dbedded6b4b37a95b73281cb81e22"
+  },
+  "deployer": {
+    "address": "0xef628Ff46771a0E26f214C94dBAf55e95602fb31",
+    "balance": "0.296 ETH"
+  },
+  "contracts": {
+    "AIModelRegistry": "0x7adFdF1bb25bC7bb950a49A12b3B1cFd09BA01C3",
+    "AIModelTokenV2": "0x8fFe74cDd710BD2537A3aA73Bf024381865FcE0d",
+    "TrainingDataManager": "0xd35C7609EC4895f828C3141D19F25Ba8671342e3",
+    "DeploymentManager": "0x2a1Bf421884ec9349e7b5A1A423E10d6696a7f05",
+    "AuditManager": "0x71E8846DfDe30337CBa15101acc09Ba2E983207C",
+    "GovernanceManager": "0x05212eda55FB8C5d35e324340489fD48d564DD8B",
+    "AIModelNFT": "0xE30597d5fdbD28fA17540476c51BeDC82b339191",
+    "AIModelInsuranceV2": "0x12E82c34677AA925cB313727176b8151458e1065",
+    "AIModelPredictionMarket": "0x2A3181ba9c58faAaA77d61e36a4f25D8902C05ec"
+  },
+  "pending": [
+    "FederatedLearningCoordinator",
+    "AIModelMarketplace"
+  ],
+  "deployedAt": "2024-01-29T16:30:00Z"
+}
